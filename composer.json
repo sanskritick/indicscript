@@ -1,0 +1,42 @@
+{
+  "name": "sanskritick/indicscript",
+  "description": "Transliteration package for Indic scripts",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "transliteration",
+    "romanization",
+    "sanskrit",
+    "devanagari",
+    "itrans",
+    "iast"
+  ],
+  "authors": [
+    {
+      "name": "Vikram Bhaskaran",
+      "email": "vikram@sanskritick.com",
+      "homepage": "https://sanskritick.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Sanskritick\\Script\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Sanskritick\\Script\\Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.0",
+    "orchestra/testbench": "^5.1"
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
