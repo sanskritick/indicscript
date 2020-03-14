@@ -21,7 +21,7 @@ then invoke Indicscript like this:
 ```php
     <?php
 
-    use Sanskritick\Indicscript;
+    use Sanskritick\Script\Indicscript;
 
     $indicscript = new Indicscript();
     $output = $indicscript->t($input, $from, $to);
