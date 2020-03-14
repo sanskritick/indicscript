@@ -34,6 +34,16 @@
     "phpunit/phpunit": "^8.0",
     "orchestra/testbench": "^5.1"
   },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Sanskritick\\Script\\IndicscriptServiceProvider"
+      ],
+      "aliases": {
+        "Indicscript": "Sanskritick\\Script\\Facades\\Indicscript"
+      }
+    }
+  },
   "scripts": {
     "test": "vendor/bin/phpunit"
   },
