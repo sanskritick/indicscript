@@ -12,7 +12,7 @@ class IndicscriptServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->bind('indiscript', function () {
+        $this->app->bind('indicscript', function () {
             return new Indicscript();
         });
     }
