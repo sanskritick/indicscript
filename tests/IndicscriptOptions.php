@@ -2,7 +2,7 @@
 
 namespace Sanskritick\Tests;
 
-class IndicscriptOptions extends IndicscriptBase
+class IndicScriptOptions extends IndicscriptBase
 {
     public function testHindiStyleTransliteration()
     {

@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Indicscript test suite">
+        <testsuite name="IndicScript test suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

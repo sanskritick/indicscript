@@ -2,7 +2,7 @@
 
 namespace Sanskritick\Tests;
 
-class IndicscriptDravidian extends IndicscriptBase
+class IndicScriptDravidian extends IndicscriptBase
 {
     public function dravidianTest($fromScript, $toScript)
     {

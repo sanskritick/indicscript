@@ -2,17 +2,17 @@
 
 namespace Sanskritick\Tests;
 
-use Sanskritick\Indicscript;
+use Sanskritick\IndicScript;
 use PHPUnit\Framework\TestCase;
 
-abstract class IndicscriptBase extends TestCase
+abstract class IndicScriptBase extends TestCase
 {
     protected $indicscript;
     protected $data;
 
     protected function setUp()
     {
-        $this->indicscript = new Indicscript();
+        $this->indicscript = new IndicScript();
 
         $this->data = [
             'bengali' => [

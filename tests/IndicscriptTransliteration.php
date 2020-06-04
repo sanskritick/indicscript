@@ -2,7 +2,7 @@
 
 namespace Sanskritick\Tests;
 
-class IndicscriptTransliteration extends IndicscriptBase
+class IndicScriptTransliteration extends IndicscriptBase
 {
     /* Letter transliteration tests
      * ----------------------------

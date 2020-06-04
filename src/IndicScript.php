@@ -3,14 +3,35 @@
 namespace Sanskritick;
 
 /**
- * Indicscript.
+ * IndicScript.
  *
- * Indicscript is a indic transliteration library.
+ * IndicScript is a indic transliteration library.
  *
  * Released under the MIT and GPL Licenses.
  */
-class Indicscript
+class IndicScript
 {
+    // Object cache.
+    private $cache = [];
+
+    const REGEX_DEVANAGARI = '/\p{Devanagari}/u';
+    const REGEX_GUJARATI   = '/\p{Gujarati}/u';
+    const REGEX_GURMUKHI   = '/\p{Gurmukhi}/u';
+    const REGEX_KANNADA    = '/\p{Kannada}/u';
+    const REGEX_MALAYALAM  = '/\p{Malayalam}/u';
+    const REGEX_ORIYA      = '/\p{Oriya}/u';
+    const REGEX_TAMIL      = '/\p{Tamil}/u';
+    const REGEX_TELUGU     = '/\p{Telugu}/u';
+    const REGEX_BENGALI    = '/\p{Bengali}/u';
+    const REGEX_ARABIC     = '/\p{Arabic}/u';
+
+    public function __construct()
+    {
+        $this->convertUnicodeConstants($this->schemes['devanagari']['zwj']);
+        $this->convertUnicodeConstants($this->schemes['devanagari']['accent']);
+        $this->setUpSchemes();
+    }
+
     // Transliteration process option defaults.
     public $defaults = [
         'skip_sgml' => false,
@@ -28,7 +49,7 @@ class Indicscript
      * Brahmic consonants are stated without a virama. Roman consonants are
      * stated without the vowel 'a'.
      *
-     * (Since "abugida" is not a well-known term, Indicscript uses "Brahmic"
+     * (Since "abugida" is not a well-known term, IndicScript uses "Brahmic"
      * and "roman" for clarity.)
      */
     public $schemes = [
@@ -321,16 +342,6 @@ class Indicscript
         ],
     ];
 
-    // Object cache.
-    private $cache = [];
-
-    public function __construct()
-    {
-        $this->convertUnicodeConstants($this->schemes['devanagari']['zwj']);
-        $this->convertUnicodeConstants($this->schemes['devanagari']['accent']);
-        $this->setUpSchemes();
-    }
-
     /**
      * Work around the lack of Unicode escape sequence decoding in PHP strings.
      *
@@ -339,6 +350,56 @@ class Indicscript
     private function convertUnicodeConstants(&$values)
     {
         $values = json_decode('["' . implode('","', $values) . '"]');
+    }
+
+    public static function isDevanagari($string)
+    {
+        return preg_match(self::REGEX_DEVANAGARI, $string) > 0;
+    }
+
+    public static function isGujarati($string)
+    {
+        return preg_match(self::REGEX_GUJARATI, $string) > 0;
+    }
+
+    public static function isGurmukhi($string)
+    {
+        return preg_match(self::REGEX_GURMUKHI, $string) > 0;
+    }
+
+    public static function isKannada($string)
+    {
+        return preg_match(self::REGEX_KANNADA, $string) > 0;
+    }
+
+    public static function isMalayalam($string)
+    {
+        return preg_match(self::REGEX_MALAYALAM, $string) > 0;
+    }
+
+    public static function isOriya($string)
+    {
+        return preg_match(self::REGEX_ORIYA, $string) > 0;
+    }
+
+    public static function isTamil($string)
+    {
+        return preg_match(self::REGEX_TAMIL, $string) > 0;
+    }
+
+    public static function isTelugu($string)
+    {
+        return preg_match(self::REGEX_TELUGU, $string) > 0;
+    }
+
+    public static function isBengali($string)
+    {
+        return preg_match(self::REGEX_BENGALI, $string) > 0;
+    }
+
+    public static function isArabic($string)
+    {
+        return preg_match(self::REGEX_ARABIC, $string) > 0;
     }
 
     /**
@@ -354,7 +415,7 @@ class Indicscript
     }
 
     /**
-     * Add a Brahmic scheme to Indicscript.
+     * Add a Brahmic scheme to IndicScript.
      *
      * Schemes are of two types: "Brahmic" and "roman". Brahmic consonants
      * have an inherent vowel sound, but roman consonants do not. This is the
@@ -365,7 +426,7 @@ class Indicscript
      * this file.
      *
      * You can use whatever group names you like, but for the best results,
-     * you should use the same group names that Indicscript does.
+     * you should use the same group names that IndicScript does.
      *
      * @param string $name   the scheme name
      * @param array  $scheme the scheme data itself. This should be constructed
@@ -377,7 +438,7 @@ class Indicscript
     }
 
     /**
-     * Add a roman scheme to Indicscript.
+     * Add a roman scheme to IndicScript.
      *
      * See the comments on addBrahmicScheme. The "vowel_marks" field can be
      * omitted.
@@ -699,7 +760,7 @@ class Indicscript
      *
      * @return string the finished string
      */
-    public function t($data, $from, $to, $options = null)
+    public function transliterate($data, $from, $to, $options = null)
     {
         $options       = isset($options) ? $options : [];
         $cachedOptions = isset($this->cache['options']) ? $this->cache['options'] : [];

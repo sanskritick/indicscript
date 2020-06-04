@@ -1,66 +1,65 @@
-# Indicscript
+# IndicScript
 
 ## Introduction
 
-Indicscript is a transliteration library for Indian languages written in PHP. It supports the most popular Indian scripts and several different romanization schemes. Although Indicscript focuses on Sanskrit transliteration, it has partial support for other languages and is easy to extend.
+IndicScript is a transliteration library for Indian languages written in PHP. It supports the most popular Indian scripts and several different romanization schemes. Although IndicScript focuses on Sanskrit transliteration, it has partial support for other languages and is easy to extend.
 
 ## Requirements
 
-Indicscript requires PHP 5.4.8 and up. PHP versions before 5.4.8 have a version of `mb_substr()` that is known to be [broken](http://us.php.net/ChangeLog-5.php). These versions will not work with Indicscript.
+IndicScript requires PHP 5.4.8 and up. PHP versions before 5.4.8 have a version of `mb_substr()` that is known to be [broken](http://us.php.net/ChangeLog-5.php). These versions will not work with IndicScript.
 
 ## Usage
 
-Indicscript is simple to use.
+IndicScript is simple to use.
 
-First install the [Composer](http://getcomposer.org) package manager, then install Indicscript with:
+First install the [Composer](http://getcomposer.org) package manager, then install IndicScript with:
 
-```php 
+```php
 composer require sanskritick/indicscript
 ```
 
-then invoke Indicscript like this:
+then invoke IndicScript like this:
 
 ```php
 <?php
 
-use Sanskritick\Indicscript;
+use Sanskritick\IndicScript;
 
-$indicscript = new Indicscript();
-$output = $indicscript->t($input, $from, $to);
+$indicscript = new IndicScript();
+$output = $indicscript->transliterate($input, $from, $to);
 ```
 
 In Laravel 5.5 the package's service provider and facade will be registered automatically. In older versions of Laravel, you must register them manually:
 
-```
+```bash
 // config/app.php
 
 'providers' => [
   ...
-  Sanskritick\IndicscriptServiceProvider::class,
+  Sanskritick\IndicScriptServiceProvider::class,
 ],
 
 'aliases' => [
   ...
-  'Indicscript' => Sanskritick\IndicscriptFacade::class,
+  'IndicScript' => Sanskritick\IndicScriptFacade::class,
 ],
 ```
 
 The facade is optional, but the rest of this guide assumes you're using it.
 
 ## Laravel Usage
+
 ```php
 <?php
-   
-$output = Indicscript::t($input, $from, $to);
-   
+$output = IndicScript::t($input, $from, $to);
 ```
 
-Here, `$from` and `$to` are the names of different **schemes**. In Indicscript, the word "scheme" refers to both scripts and romanizations. These schemes are of two types:
+Here, `$from` and `$to` are the names of different **schemes**. In IndicScript, the word "scheme" refers to both scripts and romanizations. These schemes are of two types:
 
 1. **Brahmic** schemes, which are _abugidas_. All Indian scripts are Brahmic schemes.
 2. **Roman** schemes, which are _alphabets_. All romanizations are Roman schemes.
 
-By default, Indicscript supports the following Brahmic schemes:
+By default, IndicScript supports the following Brahmic schemes:
 
 - `bengali`
 - `devanagari`
@@ -85,25 +84,31 @@ and the following Roman schemes:
 
 ### Disabling transliteration
 
-When Indicscript sees the token `##`, it toggles the transliteration state:
+When IndicScript sees the token `##`, it toggles the transliteration state:
 
-    $Indicscript->t('ga##Na##pa##te', 'hk', 'devanagari'); // गNaपte
-    $Indicscript->t('ध##र्म##क्षेत्रे', 'devanagari', 'hk'); // dhaर्मkSetre
+```bash
+    $IndicScript->transliterate('ga##Na##pa##te', 'hk', 'devanagari'); // गNaपte
+    $IndicScript->transliterate('ध##र्म##क्षेत्रे', 'devanagari', 'hk'); // dhaर्मkSetre
+```
 
-When Indicscript sees the token `\`, it disables transliteration on the character that immediately follows. `\` is used for ITRANS compatibility; we recommend always using `##` instead.
+When IndicScript sees the token `\`, it disables transliteration on the character that immediately follows. `\` is used for ITRANS compatibility; we recommend always using `##` instead.
 
-    $Indicscript->t('a \\a', 'itrans', 'devanagari'); // अ a
-    $Indicscript->t('\\##aham', 'itrans', 'devanagari'); // ##अहम्
+```bash
+    $IndicScript->transliterate('a \\a', 'itrans', 'devanagari'); // अ a
+    $IndicScript->transliterate('\\##aham', 'itrans', 'devanagari'); // ##अहम्
+```
 
 ### Transliterating to lossy schemes
 
-A **lossy** scheme does not have the letters needed to support lossless translation. For example, Bengali is a lossy scheme because it uses `ব` for both `ba` and `va`. In future releases, Indicscript might let you choose how to handle lossiness. For the time being, it makes some fairly bad hard-coded assumptions. Corrections and advice are always welcome.
+A **lossy** scheme does not have the letters needed to support lossless translation. For example, Bengali is a lossy scheme because it uses `ব` for both `ba` and `va`. In future releases, IndicScript might let you choose how to handle lossiness. For the time being, it makes some fairly bad hard-coded assumptions. Corrections and advice are always welcome.
 
 ### Transliteration options
 
 You can tweak the transliteration function by passing an `options` array:
 
-    $output = $Indicscript->t($input, $from, $to, $options);
+```bash
+$output = $IndicScript->transliterate($input, $from, $to, $options);
+```
 
 `$options` maps options to values. Currently, these options are supported:
 
@@ -114,7 +119,9 @@ You can tweak the transliteration function by passing an `options` array:
 
 Adding a new scheme is simple:
 
-    $Indicscript->addBrahmicScheme($schemeName, $schemeData);
-    $Indicscript->addRomanScheme($schemeName, $schemeData);
+```bash
+$IndicScript->addBrahmicScheme($schemeName, $schemeData);
+$IndicScript->addRomanScheme($schemeName, $schemeData);
+```
 
 For help in creating `$schemeData`, see the comments on the `addBrahmicScheme` and `addRomanScheme` functions.

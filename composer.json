@@ -39,10 +39,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Sanskritick\\IndicscriptServiceProvider"
+        "Sanskritick\\IndicScriptServiceProvider"
       ],
       "aliases": {
-        "Indicscript": "Sanskritick\\Facades\\Indicscript"
+        "IndicScript": "Sanskritick\\Facades\\IndicScript"
       }
     }
   },

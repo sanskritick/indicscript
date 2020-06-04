@@ -2,7 +2,7 @@
 
 namespace Sanskritick\Tests;
 
-class IndicscriptToggle extends IndicscriptBase
+class IndicScriptToggle extends IndicscriptBase
 {
     public function testHarvardKyoto()
     {
