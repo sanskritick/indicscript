@@ -1,6 +1,6 @@
 <?php
 
-namespace Sanskritick\Indicscript\Tests;
+namespace Sanskritick\Tests;
 
 use Sanskritick\Indicscript;
 use PHPUnit\Framework\TestCase;

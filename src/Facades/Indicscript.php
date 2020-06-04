@@ -1,6 +1,6 @@
 <?php
 
-namespace Sanskritick\Script\Facades;
+namespace Sanskritick\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

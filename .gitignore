@@ -1,4 +1,8 @@
 .phpunit.result.cache
+.phpunit.xml.dist
+.idea
+.phpintel
+tests
 vendor
 composer.lock
 .DS_Store

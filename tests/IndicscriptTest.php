@@ -1,9 +1,9 @@
 <?php
 
-namespace Sanskritick\Script\Tests;
+namespace Sanskritick\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Sanskritick\Script\Indicscript;
+use Sanskritick\Indicscript;
 
 class IndicscriptTest extends TestCase
 {
@@ -13,6 +13,6 @@ class IndicscriptTest extends TestCase
         $indicscript   = new Indicscript();
         $output        = $indicscript->t('ga##Na##pa##te', 'hk', 'devanagari');
 
-        $this->assertEquals($output, 'गNaपte');
+        $this->assertEquals('गNaपte', $output);
     }
 }

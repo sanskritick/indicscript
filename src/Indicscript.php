@@ -1,6 +1,6 @@
 <?php
 
-namespace Sanskritick\Script;
+namespace Sanskritick;
 
 /**
  * Indicscript.

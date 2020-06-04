@@ -1,6 +1,6 @@
 <?php
 
-namespace Sanskritick\Indicscript\Tests;
+namespace Sanskritick\Tests;
 
 class IndicscriptOptions extends IndicscriptBase
 {

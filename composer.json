@@ -19,15 +19,17 @@
       "role": "Developer"
     }
   ],
-  "require": {},
+  "require": {
+    "php": ">=5.5"
+  },
   "autoload": {
     "psr-4": {
-      "Sanskritick\\Script\\": "src/"
+      "Sanskritick\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Sanskritick\\Script\\Tests\\": "tests/"
+      "Sanskritick\\Tests\\": "tests/"
     }
   },
   "require-dev": {
@@ -37,10 +39,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Sanskritick\\Script\\IndicscriptServiceProvider"
+        "Sanskritick\\IndicscriptServiceProvider"
       ],
       "aliases": {
-        "Indicscript": "Sanskritick\\Script\\Facades\\Indicscript"
+        "Indicscript": "Sanskritick\\Facades\\Indicscript"
       }
     }
   },

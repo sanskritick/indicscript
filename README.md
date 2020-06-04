@@ -14,17 +14,45 @@ Indicscript is simple to use.
 
 First install the [Composer](http://getcomposer.org) package manager, then install Indicscript with:
 
-    composer require sanskritick/indicscript
+```php 
+composer require sanskritick/indicscript
+```
 
 then invoke Indicscript like this:
 
 ```php
-    <?php
+<?php
 
-    use Sanskritick\Script\Indicscript;
+use Sanskritick\Indicscript;
 
-    $indicscript = new Indicscript();
-    $output = $indicscript->t($input, $from, $to);
+$indicscript = new Indicscript();
+$output = $indicscript->t($input, $from, $to);
+```
+
+In Laravel 5.5 the package's service provider and facade will be registered automatically. In older versions of Laravel, you must register them manually:
+
+```
+// config/app.php
+
+'providers' => [
+  ...
+  Sanskritick\IndicscriptServiceProvider::class,
+],
+
+'aliases' => [
+  ...
+  'Indicscript' => Sanskritick\IndicscriptFacade::class,
+],
+```
+
+The facade is optional, but the rest of this guide assumes you're using it.
+
+## Laravel Usage
+```php
+<?php
+   
+$output = Indicscript::t($input, $from, $to);
+   
 ```
 
 Here, `$from` and `$to` are the names of different **schemes**. In Indicscript, the word "scheme" refers to both scripts and romanizations. These schemes are of two types:
@@ -90,11 +118,3 @@ Adding a new scheme is simple:
     $Indicscript->addRomanScheme($schemeName, $schemeData);
 
 For help in creating `$schemeData`, see the comments on the `addBrahmicScheme` and `addRomanScheme` functions.
-
-## Running tests
-
-Running tests is facilitated with Composer:
-
-    1. cd /path/to/Indicscript
-    2. composer install
-    3. ./vendor/bin/phpunit
