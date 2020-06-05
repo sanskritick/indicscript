@@ -2,6 +2,7 @@
 
 namespace Sanskritick\Tests;
 
+use Closure;
 use Sanskritick\IndicScript;
 use PHPUnit\Framework\TestCase;
 
@@ -10,7 +11,7 @@ abstract class IndicScriptBase extends TestCase
     protected $indicscript;
     protected $data;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->indicscript = new IndicScript();
 
@@ -164,14 +165,14 @@ abstract class IndicScriptBase extends TestCase
      * @param $to       the destination script
      * @param $options  transliteration options
      *
-     * @return the function described above
+     * @return Closure function described above
      */
     protected function transHelper($from, $to, $options = null)
     {
         $that = $this;
 
         return function ($input, $output, $description = '') use ($that, $from, $to, $options) {
-            $that->assertEquals($output, $that->indicscript->t($input, $from, $to, $options), $description);
+            $that->assertEquals($output, $that->indicscript->transliterate($input, $from, $to, $options), $description);
         };
     }
 }

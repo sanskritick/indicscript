@@ -2,7 +2,7 @@
 
 ## Introduction
 
-IndicScript is a transliteration library for Indian languages written in PHP. It supports the most popular Indian scripts and several different romanization schemes. Although IndicScript focuses on Sanskrit transliteration, it has partial support for other languages and is easy to extend.
+IndicScript is a transliteration library for Indian languages written in PHP. It supports the most popular Indian scripts and several different romanization schemes. Although IndicScript focuses on Sanskrit transliteration, it has partial support for other Indic scripts and is easy to extend.
 
 ## Requirements
 
@@ -59,28 +59,7 @@ Here, `$from` and `$to` are the names of different **schemes**. In IndicScript, 
 1. **Brahmic** schemes, which are _abugidas_. All Indian scripts are Brahmic schemes.
 2. **Roman** schemes, which are _alphabets_. All romanizations are Roman schemes.
 
-By default, IndicScript supports the following Brahmic schemes:
-
-- `bengali`
-- `devanagari`
-- `gujarati`
-- `gurmukhi`
-- `kannada`
-- `malayalam`
-- `oriya`
-- `tamil`
-- `telugu`
-
-and the following Roman schemes:
-
-- `hk` (Harvard-Kyoto)
-- `iast` (International Alphabet of Sanskrit Transliteration)
-- `itrans` (ITRANS)
-- `itrans_dravidian` (ITRANS with support for Dravidian short "e" and "o")
-- `kolkata` (National Library at Kolkata)
-- `slp1` (Sanskrit Library Phonetic Basic)
-- `velthuis` (Velthuis)
-- `wx` (WX)
+The list of all **Brahmic** and **Roman** schemes supported are available here [Schemes](Schemes.md)
 
 ### Disabling transliteration
 
