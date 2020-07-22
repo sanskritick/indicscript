@@ -6,7 +6,7 @@ IndicScript is a transliteration library for Indian languages written in PHP. It
 
 ## Requirements
 
-IndicScript requires PHP 5.4.8 and up. PHP versions before 5.4.8 have a version of `mb_substr()` that is known to be [broken](http://us.php.net/ChangeLog-5.php). These versions will not work with IndicScript.
+IndicScript requires PHP 5.4.8 and up though its only been tested on PHP 7. PHP versions before 5.4.8 have a version of `mb_substr()` that is known to be [broken](http://us.php.net/ChangeLog-5.php). These versions will not work with IndicScript.
 
 ## Usage
 
@@ -23,7 +23,7 @@ then invoke IndicScript like this:
 ```php
 <?php
 
-use Sanskritick\IndicScript;
+use Sanskritick\Script\IndicScript;
 
 $indicscript = new IndicScript();
 $output = $indicscript->transliterate($input, $from, $to);
