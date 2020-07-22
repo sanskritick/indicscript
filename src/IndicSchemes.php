@@ -1,6 +1,6 @@
 <?php
 
-namespace Sanskritick;
+namespace Sanskritick\Script;
 
 abstract class IndicSchemes
 {

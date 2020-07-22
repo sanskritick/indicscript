@@ -1,6 +1,6 @@
 <?php
 
-namespace Sanskritick;
+namespace Sanskritick\Script;
 
 /**
  * IndicScript.
@@ -12,7 +12,8 @@ namespace Sanskritick;
 class IndicScript
 {
     // Object cache.
-    private $cache = [];
+    private array $cache = [];
+    private array $schemes;
 
     const REGEX_COMMON              = '/\p{Common}/u';
     const REGEX_ARABIC              = '/\p{Arabic}/u';
@@ -69,42 +70,42 @@ class IndicScript
     }
 
     // Transliteration process option defaults.
-    public $defaults = [
+    public array $defaults = [
         'skip_sgml' => false,
-        'syncope'   => false,
+        'syncope' => false,
     ];
 
     // Set of names of Roman schemes.
-    private $romanSchemes = [];
+    private array $romanSchemes = [];
 
     // Map of alternate encodings.
-    private $allAlternates = [
+    private array $allAlternates = [
         'itrans' => [
-            'A'    => ['aa'],
-            'I'    => ['ii', 'ee'],
-            'U'    => ['uu', 'oo'],
-            'RRi'  => ['R^i'],
-            'RRI'  => ['R^I'],
-            'LLi'  => ['L^i'],
-            'LLI'  => ['L^I'],
-            'M'    => ['.m', '.n'],
-            '~N'   => ['N^'],
-            'ch'   => ['c'],
-            'Ch'   => ['C', 'chh'],
-            '~n'   => ['JN'],
-            'v'    => ['w'],
-            'Sh'   => ['S', 'shh'],
-            'kSh'  => ['kS', 'x'],
-            'j~n'  => ['GY', 'dny'],
-            'OM'   => ['AUM'],
-            '\\_'  => ['\\`'],
+            'A' => ['aa'],
+            'I' => ['ii', 'ee'],
+            'U' => ['uu', 'oo'],
+            'RRi' => ['R^i'],
+            'RRI' => ['R^I'],
+            'LLi' => ['L^i'],
+            'LLI' => ['L^I'],
+            'M' => ['.m', '.n'],
+            '~N' => ['N^'],
+            'ch' => ['c'],
+            'Ch' => ['C', 'chh'],
+            '~n' => ['JN'],
+            'v' => ['w'],
+            'Sh' => ['S', 'shh'],
+            'kSh' => ['kS', 'x'],
+            'j~n' => ['GY', 'dny'],
+            'OM' => ['AUM'],
+            '\\_' => ['\\`'],
             '\\_H' => ['\\`H'],
             "\\'M" => ["\\'.m", "\\'.n"],
             '\\_M' => ['\\_.m', '\\_.n', '\\`M', '\\`.m', '\\`.n'],
-            '.a'   => ['~'],
-            '|'    => ['.'],
-            '||'   => ['..'],
-            'z'    => ['J'],
+            '.a' => ['~'],
+            '|' => ['.'],
+            '||' => ['..'],
+            'z' => ['J'],
         ],
     ];
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Sanskritick\Tests;
+namespace Sanskritick\Script\Tests;
 
 use Closure;
-use Sanskritick\IndicScript;
 use PHPUnit\Framework\TestCase;
+use Sanskritick\Script\IndicScript;
 
 abstract class IndicScriptBase extends TestCase
 {

@@ -20,16 +20,17 @@
     }
   ],
   "require": {
-    "php": ">=5.5"
+    "php": "^7.4",
+    "ext-json": "*"
   },
   "autoload": {
     "psr-4": {
-      "Sanskritick\\": "src/"
+      "Sanskritick\\Script\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Sanskritick\\Tests\\": "tests/"
+      "Sanskritick\\Script\\Tests\\": "tests"
     }
   },
   "require-dev": {
@@ -39,10 +40,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Sanskritick\\IndicScriptServiceProvider"
+        "Sanskritick\\Script\\IndicScriptServiceProvider"
       ],
       "aliases": {
-        "IndicScript": "Sanskritick\\Facades\\IndicScript"
+        "IndicScript": "Sanskritick\\Script\\IndicScriptFacade"
       }
     }
   },
