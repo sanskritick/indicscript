@@ -36,12 +36,12 @@ In Laravel 5.5 the package's service provider and facade will be registered auto
 
 'providers' => [
   ...
-  Sanskritick\IndicScriptServiceProvider::class,
+  Sanskritick\Script\IndicScriptServiceProvider::class,
 ],
 
 'aliases' => [
   ...
-  'IndicScript' => Sanskritick\IndicScriptFacade::class,
+  'IndicScript' => Sanskritick\Script\IndicScriptFacade::class,
 ],
 ```
 
@@ -66,15 +66,15 @@ The list of all **Brahmic** and **Roman** schemes supported are available here [
 When IndicScript sees the token `##`, it toggles the transliteration state:
 
 ```bash
-    $IndicScript->transliterate('ga##Na##pa##te', 'hk', 'devanagari'); // गNaपte
-    $IndicScript->transliterate('ध##र्म##क्षेत्रे', 'devanagari', 'hk'); // dhaर्मkSetre
+    $indicscript->transliterate('ga##Na##pa##te', 'hk', 'devanagari'); // गNaपte
+    $indicscript->transliterate('ध##र्म##क्षेत्रे', 'devanagari', 'hk'); // dhaर्मkSetre
 ```
 
 When IndicScript sees the token `\`, it disables transliteration on the character that immediately follows. `\` is used for ITRANS compatibility; we recommend always using `##` instead.
 
 ```bash
-    $IndicScript->transliterate('a \\a', 'itrans', 'devanagari'); // अ a
-    $IndicScript->transliterate('\\##aham', 'itrans', 'devanagari'); // ##अहम्
+    $indicscript->transliterate('a \\a', 'itrans', 'devanagari'); // अ a
+    $indicscript->transliterate('\\##aham', 'itrans', 'devanagari'); // ##अहम्
 ```
 
 ### Transliterating to lossy schemes
@@ -86,7 +86,7 @@ A **lossy** scheme does not have the letters needed to support lossless translat
 You can tweak the transliteration function by passing an `options` array:
 
 ```bash
-$output = $IndicScript->transliterate($input, $from, $to, $options);
+$output = $indicscript->transliterate($input, $from, $to, $options);
 ```
 
 `$options` maps options to values. Currently, these options are supported:
@@ -99,8 +99,8 @@ $output = $IndicScript->transliterate($input, $from, $to, $options);
 Adding a new scheme is simple:
 
 ```bash
-$IndicScript->addBrahmicScheme($schemeName, $schemeData);
-$IndicScript->addRomanScheme($schemeName, $schemeData);
+$indicscript->addBrahmicScheme($schemeName, $schemeData);
+$indicscript->addRomanScheme($schemeName, $schemeData);
 ```
 
 For help in creating `$schemeData`, see the comments on the `addBrahmicScheme` and `addRomanScheme` functions.
