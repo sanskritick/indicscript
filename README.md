@@ -1,5 +1,7 @@
 # IndicScript
 
+![Check & Fix styling](https://github.com/sanskritick/indicscript/workflows/Check%20&%20fix%20styling/badge.svg)  ![Tests](https://github.com/sanskritick/indicscript/workflows/Tests/badge.svg)
+
 ## Introduction
 
 IndicScript is a transliteration library for Indian languages written in PHP. It supports the most popular Indian scripts and several different romanization schemes. Although IndicScript focuses on Sanskrit transliteration, it has partial support for other Indic scripts and is easy to extend.
