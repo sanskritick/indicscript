@@ -1,4 +1,4 @@
-name: Check & Fix styling
+name: Check & Fix Styling
 
 on: [push]
 

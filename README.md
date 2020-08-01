@@ -1,6 +1,6 @@
 # IndicScript
 
-![Check & Fix styling](https://github.com/sanskritick/indicscript/workflows/Check%20&%20fix%20styling/badge.svg)  ![Tests](https://github.com/sanskritick/indicscript/workflows/Tests/badge.svg)
+![Check & Fix Styling](https://github.com/sanskritick/indicscript/workflows/Check%20&%20Fix%20Styling/badge.svg)  ![Tests](https://github.com/sanskritick/indicscript/workflows/Tests/badge.svg)
 
 ## Introduction
 
