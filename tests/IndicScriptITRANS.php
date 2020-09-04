@@ -22,7 +22,7 @@ class IndicScriptITRANS extends IndicScriptBase
     public function testAlternates()
     {
         $that = $this;
-        $f    = function ($itrans1, $itrans2, $description) use ($that) {
+        $f = function ($itrans1, $itrans2, $description) use ($that) {
             $dev1 = $that->indicscript->t($itrans1, 'itrans', 'devanagari');
             $dev2 = $that->indicscript->t($itrans2, 'itrans', 'devanagari');
             $that->assertEquals($dev2, $dev1, $description);

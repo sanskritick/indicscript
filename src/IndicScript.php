@@ -15,51 +15,51 @@ class IndicScript
     private array $cache = [];
     private array $schemes;
 
-    const REGEX_COMMON              = '/\p{Common}/u';
-    const REGEX_ARABIC              = '/\p{Arabic}/u';
-    const REGEX_ARMENIAN            = '/\p{Armenian}/u';
-    const REGEX_BENGALI             = '/\p{Bengali}/u';
-    const REGEX_BOPOMOFO            = '/\p{Bopomofo}/u';
-    const REGEX_BRAILLE             = '/\p{Braille}/u';
-    const REGEX_BUHID               = '/\p{Buhid}/u';
+    const REGEX_COMMON = '/\p{Common}/u';
+    const REGEX_ARABIC = '/\p{Arabic}/u';
+    const REGEX_ARMENIAN = '/\p{Armenian}/u';
+    const REGEX_BENGALI = '/\p{Bengali}/u';
+    const REGEX_BOPOMOFO = '/\p{Bopomofo}/u';
+    const REGEX_BRAILLE = '/\p{Braille}/u';
+    const REGEX_BUHID = '/\p{Buhid}/u';
     const REGEX_CANADIAN_ABORIGINAL = '/\p{Canadian_Aboriginal}/u';
-    const REGEX_CHEROKEE            = '/\p{Cherokee}/u';
-    const REGEX_CYRILLIC            = '/\p{Cyrillic}/u';
-    const REGEX_DEVANAGARI          = '/\p{Devanagari}/u';
-    const REGEX_ETHIOPIC            = '/\p{Ethiopic}/u';
-    const REGEX_GEORGIAN            = '/\p{Georgian}/u';
-    const REGEX_GREEK               = '/\p{Greek}/u';
-    const REGEX_GUJARATI            = '/\p{Gujarati}/u';
-    const REGEX_GURMUKHI            = '/\p{Gurmukhi}/u';
-    const REGEX_HAN                 = '/\p{Han}/u';
-    const REGEX_HANGUL              = '/\p{Hangul}/u';
-    const REGEX_HANUNOO             = '/\p{Hanunoo}/u';
-    const REGEX_HEBREW              = '/\p{Hebrew}/u';
-    const REGEX_HIRAGANA            = '/\p{Hiragana}/u';
-    const REGEX_INHERITED           = '/\p{Inherited}/u';
-    const REGEX_KANNADA             = '/\p{Kannada}/u';
-    const REGEX_KATAKANA            = '/\p{Katakana}/u';
-    const REGEX_KHMER               = '/\p{Khmer}/u';
-    const REGEX_LAO                 = '/\p{Lao}/u';
-    const REGEX_LATIN               = '/\p{Latin}/u';
-    const REGEX_LIMBU               = '/\p{Limbu}/u';
-    const REGEX_MALAYALAM           = '/\p{Malayalam}/u';
-    const REGEX_MONGOLIAN           = '/\p{Mongolian}/u';
-    const REGEX_MYANMAR             = '/\p{Myanmar}/u';
-    const REGEX_OGHAM               = '/\p{Ogham}/u';
-    const REGEX_ORIYA               = '/\p{Oriya}/u';
-    const REGEX_RUNIC               = '/\p{Runic}/u';
-    const REGEX_SINHALA             = '/\p{Sinhala}/u';
-    const REGEX_SYRIAC              = '/\p{Syriac}/u';
-    const REGEX_TAGALOG             = '/\p{Tagalog}/u';
-    const REGEX_TAGBANWA            = '/\p{Tagbanwa}/u';
-    const REGEX_TAILE               = '/\p{TaiLe}/u';
-    const REGEX_TAMIL               = '/\p{Tamil}/u';
-    const REGEX_TELUGU              = '/\p{Telugu}/u';
-    const REGEX_THAANA              = '/\p{Thaana}/u';
-    const REGEX_THAI                = '/\p{Thai}/u';
-    const REGEX_TIBETAN             = '/\p{Tibetan}/u';
-    const REGEX_YI                  = '/\p{Yi}/u';
+    const REGEX_CHEROKEE = '/\p{Cherokee}/u';
+    const REGEX_CYRILLIC = '/\p{Cyrillic}/u';
+    const REGEX_DEVANAGARI = '/\p{Devanagari}/u';
+    const REGEX_ETHIOPIC = '/\p{Ethiopic}/u';
+    const REGEX_GEORGIAN = '/\p{Georgian}/u';
+    const REGEX_GREEK = '/\p{Greek}/u';
+    const REGEX_GUJARATI = '/\p{Gujarati}/u';
+    const REGEX_GURMUKHI = '/\p{Gurmukhi}/u';
+    const REGEX_HAN = '/\p{Han}/u';
+    const REGEX_HANGUL = '/\p{Hangul}/u';
+    const REGEX_HANUNOO = '/\p{Hanunoo}/u';
+    const REGEX_HEBREW = '/\p{Hebrew}/u';
+    const REGEX_HIRAGANA = '/\p{Hiragana}/u';
+    const REGEX_INHERITED = '/\p{Inherited}/u';
+    const REGEX_KANNADA = '/\p{Kannada}/u';
+    const REGEX_KATAKANA = '/\p{Katakana}/u';
+    const REGEX_KHMER = '/\p{Khmer}/u';
+    const REGEX_LAO = '/\p{Lao}/u';
+    const REGEX_LATIN = '/\p{Latin}/u';
+    const REGEX_LIMBU = '/\p{Limbu}/u';
+    const REGEX_MALAYALAM = '/\p{Malayalam}/u';
+    const REGEX_MONGOLIAN = '/\p{Mongolian}/u';
+    const REGEX_MYANMAR = '/\p{Myanmar}/u';
+    const REGEX_OGHAM = '/\p{Ogham}/u';
+    const REGEX_ORIYA = '/\p{Oriya}/u';
+    const REGEX_RUNIC = '/\p{Runic}/u';
+    const REGEX_SINHALA = '/\p{Sinhala}/u';
+    const REGEX_SYRIAC = '/\p{Syriac}/u';
+    const REGEX_TAGALOG = '/\p{Tagalog}/u';
+    const REGEX_TAGBANWA = '/\p{Tagbanwa}/u';
+    const REGEX_TAILE = '/\p{TaiLe}/u';
+    const REGEX_TAMIL = '/\p{Tamil}/u';
+    const REGEX_TELUGU = '/\p{Telugu}/u';
+    const REGEX_THAANA = '/\p{Thaana}/u';
+    const REGEX_THAI = '/\p{Thai}/u';
+    const REGEX_TIBETAN = '/\p{Tibetan}/u';
+    const REGEX_YI = '/\p{Yi}/u';
 
     public function __construct()
     {
@@ -406,7 +406,7 @@ class IndicScript
         if (! isset($scheme['vowel_marks'])) {
             $scheme['vowel_marks'] = array_slice($scheme['vowels'], 1);
         }
-        $this->schemes[$name]      = $scheme;
+        $this->schemes[$name] = $scheme;
         $this->romanSchemes[$name] = true;
     }
 
@@ -435,8 +435,8 @@ class IndicScript
     private function setUpSchemes()
     {
         // Set up roman schemes
-        $kolkata                  = $this->cheapCopy($this->schemes['iast']);
-        $kolkata['vowels']        = ['a', 'ā', 'i', 'ī', 'u', 'ū', 'ṛ', 'ṝ', 'ḷ', 'ḹ', 'e', 'ē', 'ai', 'o', 'ō', 'au'];
+        $kolkata = $this->cheapCopy($this->schemes['iast']);
+        $kolkata['vowels'] = ['a', 'ā', 'i', 'ī', 'u', 'ū', 'ṛ', 'ṝ', 'ḷ', 'ḹ', 'e', 'ē', 'ai', 'o', 'ō', 'au'];
         $this->schemes['kolkata'] = &$kolkata;
 
         $schemeNames = ['iast', 'itrans', 'hk', 'kolkata', 'slp1', 'velthuis', 'wx'];
@@ -448,9 +448,9 @@ class IndicScript
         }
 
         // ITRANS variant, which supports Dravidian short 'e' and 'o'.
-        $itrans_dravidian                        = $this->cheapCopy($this->schemes['itrans']);
-        $itrans_dravidian['vowels']              = ['a', 'A', 'i', 'I', 'u', 'U', 'Ri', 'RRI', 'LLi', 'LLi', 'e', 'E', 'ai', 'o', 'O', 'au'];
-        $itrans_dravidian['vowel_marks']         = array_slice($itrans_dravidian['vowels'], 1);
+        $itrans_dravidian = $this->cheapCopy($this->schemes['itrans']);
+        $itrans_dravidian['vowels'] = ['a', 'A', 'i', 'I', 'u', 'U', 'Ri', 'RRI', 'LLi', 'LLi', 'e', 'E', 'ai', 'o', 'O', 'au'];
+        $itrans_dravidian['vowel_marks'] = array_slice($itrans_dravidian['vowels'], 1);
         $this->allAlternates['itrans_dravidian'] = $this->allAlternates['itrans'];
         $this->addRomanScheme('itrans_dravidian', $itrans_dravidian);
     }
@@ -467,12 +467,12 @@ class IndicScript
      */
     private function makeMap($from, $to, &$options)
     {
-        $consonants   = [];
-        $fromScheme   = &$this->schemes[$from];
-        $letters      = [];
+        $consonants = [];
+        $fromScheme = &$this->schemes[$from];
+        $letters = [];
         $tokenLengths = [];
-        $marks        = [];
-        $toScheme     = &$this->schemes[$to];
+        $marks = [];
+        $toScheme = &$this->schemes[$to];
 
         if (isset($this->allAlternates[$from])) {
             $alternates = &$this->allAlternates[$from];
@@ -485,13 +485,13 @@ class IndicScript
                 continue;
             }
             $fromLength = count($fromGroup);
-            $toGroup    = &$toScheme[$group];
+            $toGroup = &$toScheme[$group];
 
-            for ($i = 0; $i < $fromLength; ++$i) {
+            for ($i = 0; $i < $fromLength; $i++) {
                 $F = $fromGroup[$i];
 
                 if ($F !== '') {
-                    $T    = $toGroup[$i];
+                    $T = $toGroup[$i];
                     $alts = isset($alternates[$F]) ? $alternates[$F] : [];
 
                     $tokenLengths[] = mb_strlen($F, 'UTF-8');
@@ -542,19 +542,19 @@ class IndicScript
      */
     private function transliterateRoman($data, &$map, &$options)
     {
-        $buf            = [];
-        $consonants     = &$map['consonants'];
-        $hadConsonant   = false;
-        $letters        = &$map['letters'];
-        $marks          = &$map['marks'];
+        $buf = [];
+        $consonants = &$map['consonants'];
+        $hadConsonant = false;
+        $letters = &$map['letters'];
+        $marks = &$map['marks'];
         $maxTokenLength = &$map['maxTokenLength'];
-        $optSkipSGML    = $options['skip_sgml'];
-        $optSyncope     = $options['syncope'];
-        $tokenBuffer    = '';
-        $toRoman        = &$map['toRoman'];
-        $virama         = &$map['virama'];
-        $dataChars      = preg_split('//u', $data, -1, PREG_SPLIT_NO_EMPTY);
-        $dataLength     = count($dataChars);
+        $optSkipSGML = $options['skip_sgml'];
+        $optSyncope = $options['syncope'];
+        $tokenBuffer = '';
+        $toRoman = &$map['toRoman'];
+        $virama = &$map['virama'];
+        $dataChars = preg_split('//u', $data, -1, PREG_SPLIT_NO_EMPTY);
+        $dataLength = count($dataChars);
 
         // Transliteration state. It's controlled by these values:
         // - `$skippingSGML`: are we in SGML?
@@ -565,11 +565,11 @@ class IndicScript
         // `$skippingTrans` = $skippingSGML || $toggledTrans;
         //
         // If (and only if) this value is true, don't transliterate.
-        $skippingSGML  = false;
+        $skippingSGML = false;
         $skippingTrans = false;
-        $toggledTrans  = false;
+        $toggledTrans = false;
 
-        for ($i = 0; ($i < $dataLength || $tokenBuffer); ++$i) {
+        for ($i = 0; ($i < $dataLength || $tokenBuffer); $i++) {
             // Fill the token buffer, if possible.
             $difference = $maxTokenLength - mb_strlen($tokenBuffer, 'UTF-8');
             if ($difference > 0 && $i < $dataLength) {
@@ -580,7 +580,7 @@ class IndicScript
             }
 
             // Match all token substrings to our map.
-            for ($j = 0; $j < $maxTokenLength; ++$j) {
+            for ($j = 0; $j < $maxTokenLength; $j++) {
                 $token = mb_substr($tokenBuffer, 0, $maxTokenLength - $j, 'UTF-8');
 
                 if ($skippingSGML) {
@@ -589,7 +589,7 @@ class IndicScript
                     $skippingSGML = $optSkipSGML;
                 } elseif ($token === '##') {
                     $toggledTrans = ! $toggledTrans;
-                    $tokenBuffer  = mb_substr($tokenBuffer, 2, null, 'UTF-8');
+                    $tokenBuffer = mb_substr($tokenBuffer, 2, null, 'UTF-8');
                     break;
                 }
                 $skippingTrans = $skippingSGML || $toggledTrans;
@@ -621,7 +621,7 @@ class IndicScript
                             $buf[] = $virama;
                         }
                     }
-                    $buf[]       = $token;
+                    $buf[] = $token;
                     $tokenBuffer = mb_substr($tokenBuffer, 1, null, 'UTF-8');
                     // 'break' is redundant here, "$j == ..." is true only on
                     // the last iteration.
@@ -646,27 +646,27 @@ class IndicScript
      */
     private function transliterateBrahmic($data, &$map, &$options)
     {
-        $buf               = [];
-        $consonants        = &$map['consonants'];
-        $danglingHash      = false;
+        $buf = [];
+        $consonants = &$map['consonants'];
+        $danglingHash = false;
         $hadRomanConsonant = false;
-        $letters           = &$map['letters'];
-        $marks             = &$map['marks'];
-        $toRoman           = &$map['toRoman'];
-        $skippingTrans     = false;
-        $dataChars         = preg_split('//u', $data, -1, PREG_SPLIT_NO_EMPTY);
+        $letters = &$map['letters'];
+        $marks = &$map['marks'];
+        $toRoman = &$map['toRoman'];
+        $skippingTrans = false;
+        $dataChars = preg_split('//u', $data, -1, PREG_SPLIT_NO_EMPTY);
 
         foreach ($dataChars as $L) {
             // Toggle transliteration state
             if ($L === '#') {
                 if ($danglingHash) {
                     $skippingTrans = ! $skippingTrans;
-                    $danglingHash  = false;
+                    $danglingHash = false;
                 } else {
                     $danglingHash = true;
                 }
                 if ($hadRomanConsonant) {
-                    $buf[]             = 'a';
+                    $buf[] = 'a';
                     $hadRomanConsonant = false;
                 }
                 continue;
@@ -676,22 +676,22 @@ class IndicScript
             }
 
             if (isset($marks[$L])) {
-                $buf[]             = $marks[$L];
+                $buf[] = $marks[$L];
                 $hadRomanConsonant = false;
             } else {
                 if ($danglingHash) {
-                    $buf[]        = '#';
+                    $buf[] = '#';
                     $danglingHash = false;
                 }
                 if ($hadRomanConsonant) {
-                    $buf[]             = 'a';
+                    $buf[] = 'a';
                     $hadRomanConsonant = false;
                 }
 
                 // Push transliterated letter if possible. Otherwise, push
                 // the letter itself.
                 if (isset($letters[$L]) && $letters[$L] !== '') {
-                    $buf[]             = $letters[$L];
+                    $buf[] = $letters[$L];
                     $hadRomanConsonant = $toRoman && isset($consonants[$L]);
                 } else {
                     $buf[] = $L;
@@ -717,7 +717,7 @@ class IndicScript
      */
     public function transliterate($data, $from, $to, $options = null)
     {
-        $options       = isset($options) ? $options : [];
+        $options = isset($options) ? $options : [];
         $cachedOptions = isset($this->cache['options']) ? $this->cache['options'] : [];
         $hasPriorState = (isset($this->cache['from']) && $this->cache['from'] === $from && isset($this->cache['to']) && $this->cache['to'] === $to);
 
@@ -740,7 +740,7 @@ class IndicScript
         if ($hasPriorState) {
             $map = $this->cache['map'];
         } else {
-            $map         = $this->makeMap($from, $to, $options);
+            $map = $this->makeMap($from, $to, $options);
             $this->cache = [
                 'from'    => $from,
                 'map'     => &$map,

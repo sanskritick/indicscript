@@ -30,8 +30,8 @@ class IndicScriptSetupTest extends IndicScriptBase
         // Find the typical lengths of each category. We use Devanagari because it
         // contains every category, including "marks".
         $indicscript = $this->indicscript;
-        $roman       = ['iast', 'itrans', 'hk', 'kolkata', 'slp1', 'velthuis', 'wx'];
-        $other       = ['bengali', 'devanagari', 'gujarati', 'gurmukhi', 'kannada', 'malayalam', 'oriya', 'tamil', 'telugu'];
+        $roman = ['iast', 'itrans', 'hk', 'kolkata', 'slp1', 'velthuis', 'wx'];
+        $other = ['bengali', 'devanagari', 'gujarati', 'gurmukhi', 'kannada', 'malayalam', 'oriya', 'tamil', 'telugu'];
 
         foreach ($roman as $name) {
             $this->assertTrue($indicscript->isRomanScheme($name), $name);
@@ -43,8 +43,8 @@ class IndicScriptSetupTest extends IndicScriptBase
 
     public function testAddingSchemes()
     {
-        $indicscript   = $this->indicscript;
-        $sanskritOCR   = [
+        $indicscript = $this->indicscript;
+        $sanskritOCR = [
             'vowels'     => ['a', 'å', 'i', 'ï', 'u', '÷', 'Ÿ', '', '', '', 'e', 'ai', 'o', 'au'],
             'consonants' => ['k', 'kh', 'g', 'gh', '¼',
                 'c', 'ch', 'j', 'jh', 'ñ',

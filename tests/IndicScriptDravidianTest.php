@@ -6,9 +6,9 @@ class IndicScriptDravidianTest extends IndicScriptBase
 {
     public function dravidianTest($fromScript, $toScript)
     {
-        $f    = $this->transHelper($fromScript, $toScript);
+        $f = $this->transHelper($fromScript, $toScript);
         $from = $this->data[$fromScript];
-        $to   = $this->data[$toScript];
+        $to = $this->data[$toScript];
         $f($from['short_vowels'], $to['short_vowels'], 'Vowels (forward)');
         $f($from['short_marks'], $to['short_marks'], 'Vowel marks (forward)');
     }
