@@ -1,10 +1,10 @@
 <?php
 
-namespace Sanskritick\Script;
+namespace Sanskritick\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class IndicScriptFacade extends Facade
+class IndicScript extends Facade
 {
     protected static function getFacadeAccessor()
     {

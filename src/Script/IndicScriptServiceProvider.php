@@ -3,6 +3,7 @@
 namespace Sanskritick\Script;
 
 use Illuminate\Support\ServiceProvider;
+use Sanskritick\Script\IndicScript;
 
 class IndicScriptServiceProvider extends ServiceProvider
 {

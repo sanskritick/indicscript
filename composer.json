@@ -25,12 +25,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Sanskritick\\Script\\": "src"
+      "Sanskritick\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Sanskritick\\Script\\Tests\\": "tests"
+      "Sanskritick\\": "tests"
     }
   },
   "require-dev": {
@@ -43,7 +43,7 @@
         "Sanskritick\\Script\\IndicScriptServiceProvider"
       ],
       "aliases": {
-        "IndicScript": "Sanskritick\\Script\\IndicScriptFacade"
+        "IndicScript": "Sanskritick\\Facades\\IndicScript"
       }
     }
   },

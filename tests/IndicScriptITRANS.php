@@ -1,6 +1,6 @@
 <?php
 
-use Sanskritick\Script\Tests\IndicScriptBase;
+use Sanskritick\IndicScriptBase;
 
 class IndicScriptITRANS extends IndicScriptBase
 {
