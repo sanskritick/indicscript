@@ -8,7 +8,7 @@ IndicScript is a transliteration library for Indian languages written in PHP. It
 
 ## Requirements
 
-IndicScript requires PHP 5.4.8 and up though its only been tested on PHP 7. PHP versions before 5.4.8 have a version of `mb_substr()` that is known to be [broken](http://us.php.net/ChangeLog-5.php). These versions will not work with IndicScript.
+IndicScript requires PHP 7.4
 
 ## Usage
 
@@ -43,7 +43,7 @@ In Laravel 5.5 the package's service provider and facade will be registered auto
 
 'aliases' => [
   ...
-  'IndicScript' => Sanskritick\Script\IndicScriptFacade::class,
+  'IndicScript' => Sanskritick\Facades\IndicScript::class,
 ],
 ```
 
@@ -53,7 +53,10 @@ The facade is optional, but the rest of this guide assumes you're using it.
 
 ```php
 <?php
-$output = IndicScript::t($input, $from, $to);
+
+use Sanskritick\Facades\IndicScript;
+
+$output = IndicScript::transliterate($input, $from, $to);
 ```
 
 Here, `$from` and `$to` are the names of different **schemes**. In IndicScript, the word "scheme" refers to both scripts and romanizations. These schemes are of two types:
