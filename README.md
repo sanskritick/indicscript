@@ -2,6 +2,10 @@
 
 ![Check & Fix Styling](https://github.com/sanskritick/indicscript/workflows/Check%20&%20Fix%20Styling/badge.svg)  ![Tests](https://github.com/sanskritick/indicscript/workflows/Tests/badge.svg)
 
+[![Latest Stable Version](https://poser.pugx.org/sanskritick/indicscript/v)](//packagist.org/packages/sanskritick/indicscript)
+[![Total Downloads](https://poser.pugx.org/sanskritick/indicscript/downloads)](//packagist.org/packages/sanskritick/indicscript)
+[![License](https://poser.pugx.org/sanskritick/indicscript/license)](//packagist.org/packages/sanskritick/indicscript)
+
 ## Introduction
 
 IndicScript is a transliteration library for Indian languages written in PHP. It supports the most popular Indian scripts and several different romanization schemes. Although IndicScript focuses on Sanskrit transliteration, it has partial support for other Indic scripts and is easy to extend.
