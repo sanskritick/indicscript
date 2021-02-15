@@ -114,232 +114,232 @@ class IndicScript
      *
      * @param array $values array of Unicode character constants
      */
-    private function convertUnicodeConstants(&$values)
+    private function convertUnicodeConstants(array &$values)
     {
         $values = json_decode('["' . implode('","', $values) . '"]');
     }
 
-    public static function isCommon($string)
+    public static function isCommon($string): bool
     {
         return preg_match(self::REGEX_COMMON, $string) > 0;
     }
 
-    public static function isArabic($string)
+    public static function isArabic($string): bool
     {
         return preg_match(self::REGEX_ARABIC, $string) > 0;
     }
 
-    public static function isArmenian($string)
+    public static function isArmenian($string): bool
     {
         return preg_match(self::REGEX_ARMENIAN, $string) > 0;
     }
 
-    public static function isBengali($string)
+    public static function isBengali($string): bool
     {
         return preg_match(self::REGEX_BENGALI, $string) > 0;
     }
 
-    public static function isBopomofo($string)
+    public static function isBopomofo($string): bool
     {
         return preg_match(self::REGEX_BOPOMOFO, $string) > 0;
     }
 
-    public static function isBraille($string)
+    public static function isBraille($string): bool
     {
         return preg_match(self::REGEX_BRAILLE, $string) > 0;
     }
 
-    public static function isBuhid($string)
+    public static function isBuhid($string): bool
     {
         return preg_match(self::REGEX_BUHID, $string) > 0;
     }
 
-    public static function isCanadian_Aboriginal($string)
+    public static function isCanadian_Aboriginal($string): bool
     {
         return preg_match(self::REGEX_CANADIAN_ABORIGINAL, $string) > 0;
     }
 
-    public static function isCherokee($string)
+    public static function isCherokee($string): bool
     {
         return preg_match(self::REGEX_CHEROKEE, $string) > 0;
     }
 
-    public static function isCyrillic($string)
+    public static function isCyrillic($string): bool
     {
         return preg_match(self::REGEX_CYRILLIC, $string) > 0;
     }
 
-    public static function isDevanagari($string)
+    public static function isDevanagari($string): bool
     {
         return preg_match(self::REGEX_DEVANAGARI, $string) > 0;
     }
 
-    public static function isEthiopic($string)
+    public static function isEthiopic($string): bool
     {
         return preg_match(self::REGEX_ETHIOPIC, $string) > 0;
     }
 
-    public static function isGeorgian($string)
+    public static function isGeorgian($string): bool
     {
         return preg_match(self::REGEX_GEORGIAN, $string) > 0;
     }
 
-    public static function isGreek($string)
+    public static function isGreek($string): bool
     {
         return preg_match(self::REGEX_GREEK, $string) > 0;
     }
 
-    public static function isGujarati($string)
+    public static function isGujarati($string): bool
     {
         return preg_match(self::REGEX_GUJARATI, $string) > 0;
     }
 
-    public static function isGurmukhi($string)
+    public static function isGurmukhi($string): bool
     {
         return preg_match(self::REGEX_GURMUKHI, $string) > 0;
     }
 
-    public static function isHan($string)
+    public static function isHan($string): bool
     {
         return preg_match(self::REGEX_HAN, $string) > 0;
     }
 
-    public static function isHangul($string)
+    public static function isHangul($string): bool
     {
         return preg_match(self::REGEX_HANGUL, $string) > 0;
     }
 
-    public static function isHanunoo($string)
+    public static function isHanunoo($string): bool
     {
         return preg_match(self::REGEX_HANUNOO, $string) > 0;
     }
 
-    public static function isHebrew($string)
+    public static function isHebrew($string): bool
     {
         return preg_match(self::REGEX_HEBREW, $string) > 0;
     }
 
-    public static function isHiragana($string)
+    public static function isHiragana($string): bool
     {
         return preg_match(self::REGEX_HIRAGANA, $string) > 0;
     }
 
-    public static function isInherited($string)
+    public static function isInherited($string): bool
     {
         return preg_match(self::REGEX_INHERITED, $string) > 0;
     }
 
-    public static function isKannada($string)
+    public static function isKannada($string): bool
     {
         return preg_match(self::REGEX_KANNADA, $string) > 0;
     }
 
-    public static function isKatakana($string)
+    public static function isKatakana($string): bool
     {
         return preg_match(self::REGEX_KATAKANA, $string) > 0;
     }
 
-    public static function isKhmer($string)
+    public static function isKhmer($string): bool
     {
         return preg_match(self::REGEX_KHMER, $string) > 0;
     }
 
-    public static function isLao($string)
+    public static function isLao($string): bool
     {
         return preg_match(self::REGEX_LAO, $string) > 0;
     }
 
-    public static function isLatin($string)
+    public static function isLatin($string): bool
     {
         return preg_match(self::REGEX_LATIN, $string) > 0;
     }
 
-    public static function isLimbu($string)
+    public static function isLimbu($string): bool
     {
         return preg_match(self::REGEX_LIMBU, $string) > 0;
     }
 
-    public static function isMalayalam($string)
+    public static function isMalayalam($string): bool
     {
         return preg_match(self::REGEX_MALAYALAM, $string) > 0;
     }
 
-    public static function isMongolian($string)
+    public static function isMongolian($string): bool
     {
         return preg_match(self::REGEX_MONGOLIAN, $string) > 0;
     }
 
-    public static function isMyanmar($string)
+    public static function isMyanmar($string): bool
     {
         return preg_match(self::REGEX_MYANMAR, $string) > 0;
     }
 
-    public static function isOgham($string)
+    public static function isOgham($string): bool
     {
         return preg_match(self::REGEX_OGHAM, $string) > 0;
     }
 
-    public static function isOriya($string)
+    public static function isOriya($string): bool
     {
         return preg_match(self::REGEX_ORIYA, $string) > 0;
     }
 
-    public static function isRunic($string)
+    public static function isRunic($string): bool
     {
         return preg_match(self::REGEX_RUNIC, $string) > 0;
     }
 
-    public static function isSinhala($string)
+    public static function isSinhala($string): bool
     {
         return preg_match(self::REGEX_SINHALA, $string) > 0;
     }
 
-    public static function isSyriac($string)
+    public static function isSyriac($string): bool
     {
         return preg_match(self::REGEX_SYRIAC, $string) > 0;
     }
 
-    public static function isTagalog($string)
+    public static function isTagalog($string): bool
     {
         return preg_match(self::REGEX_TAGALOG, $string) > 0;
     }
 
-    public static function isTagbanwa($string)
+    public static function isTagbanwa($string): bool
     {
         return preg_match(self::REGEX_TAGBANWA, $string) > 0;
     }
 
-    public static function isTaiLe($string)
+    public static function isTaiLe($string): bool
     {
         return preg_match(self::REGEX_TAILE, $string) > 0;
     }
 
-    public static function isTamil($string)
+    public static function isTamil($string): bool
     {
         return preg_match(self::REGEX_TAMIL, $string) > 0;
     }
 
-    public static function isTelugu($string)
+    public static function isTelugu($string): bool
     {
         return preg_match(self::REGEX_TELUGU, $string) > 0;
     }
 
-    public static function isThaana($string)
+    public static function isThaana($string): bool
     {
         return preg_match(self::REGEX_THAANA, $string) > 0;
     }
 
-    public static function isThai($string)
+    public static function isThai($string): bool
     {
         return preg_match(self::REGEX_THAI, $string) > 0;
     }
 
-    public static function isTibetan($string)
+    public static function isTibetan($string): bool
     {
         return preg_match(self::REGEX_TIBETAN, $string) > 0;
     }
 
-    public static function isYi($string)
+    public static function isYi($string): bool
     {
         return preg_match(self::REGEX_YI, $string) > 0;
     }
@@ -347,12 +347,12 @@ class IndicScript
     /* --------------------------------------------------------
      * Proxies for the common person
      * ----------------------------------------------------- */
-    public static function isChinese($string)
+    public static function isChinese($string): bool
     {
         return self::isHan($string);
     }
 
-    public static function isJapanese($string)
+    public static function isJapanese($string): bool
     {
         return self::isHiragana($string) || self::isKatakana($string);
     }
@@ -383,11 +383,11 @@ class IndicScript
      * You can use whatever group names you like, but for the best results,
      * you should use the same group names that IndicScript does.
      *
-     * @param string $name   the scheme name
-     * @param array  $scheme the scheme data itself. This should be constructed
+     * @param string $name the scheme name
+     * @param array $scheme the scheme data itself. This should be constructed
      *                       as described above.
      */
-    public function addBrahmicScheme($name, &$scheme)
+    public function addBrahmicScheme(string $name, array &$scheme)
     {
         $this->schemes[$name] = $scheme;
     }
@@ -398,10 +398,10 @@ class IndicScript
      * See the comments on addBrahmicScheme. The "vowel_marks" field can be
      * omitted.
      *
-     * @param string $name   the scheme name
-     * @param array  $scheme the scheme data itself
+     * @param string $name the scheme name
+     * @param array $scheme the scheme data itself
      */
-    public function addRomanScheme($name, &$scheme)
+    public function addRomanScheme(string $name, array &$scheme)
     {
         if (! isset($scheme['vowel_marks'])) {
             $scheme['vowel_marks'] = array_slice($scheme['vowels'], 1);
@@ -417,7 +417,7 @@ class IndicScript
      *
      * @return array the copy
      */
-    private function cheapCopy(&$scheme)
+    private function cheapCopy(array &$scheme): array
     {
         $copy = [];
         foreach ($scheme as $key => $value) {
@@ -459,13 +459,13 @@ class IndicScript
      * Create a map from every character in `from` to its partner in `to`.
      * Also, store any "marks" that `from` might have.
      *
-     * @param string $from    input scheme
-     * @param string $to      output scheme
-     * @param array  $options scheme options
+     * @param string $from input scheme
+     * @param string $to output scheme
+     * @param array $options scheme options
      *
      * @return array the map
      */
-    private function makeMap($from, $to, &$options)
+    private function makeMap(string $from, string $to, &$options): array
     {
         $consonants = [];
         $fromScheme = &$this->schemes[$from];
@@ -534,13 +534,13 @@ class IndicScript
     /**
      * Transliterate from a romanized script.
      *
-     * @param string $data    the string to transliterate
-     * @param array  $map     map data generated from makeMap()
-     * @param array  $options transliteration options
+     * @param string $data the string to transliterate
+     * @param array $map map data generated from makeMap()
+     * @param array $options transliteration options
      *
      * @return string the finished string
      */
-    private function transliterateRoman($data, &$map, &$options)
+    private function transliterateRoman(string $data, array &$map, &$options)
     {
         $buf = [];
         $consonants = &$map['consonants'];
@@ -638,13 +638,13 @@ class IndicScript
     /**
      * Transliterate from a Brahmic script.
      *
-     * @param string $data    the string to transliterate
-     * @param array  $map     map data generated from makeMap()
-     * @param array  $options transliteration options
+     * @param string $data the string to transliterate
+     * @param array $map map data generated from makeMap()
+     * @param array $options transliteration options
      *
      * @return string the finished string
      */
-    private function transliterateBrahmic($data, &$map, &$options)
+    private function transliterateBrahmic(string $data, array &$map, &$options)
     {
         $buf = [];
         $consonants = &$map['consonants'];
@@ -708,14 +708,14 @@ class IndicScript
     /**
      * Transliterate from one script to another.
      *
-     * @param string $data    the string to transliterate
-     * @param string $from    the source script
-     * @param string $to      the destination script
-     * @param array  $options transliteration options
+     * @param string $data the string to transliterate
+     * @param string $from the source script
+     * @param string $to the destination script
+     * @param null $options transliteration options
      *
      * @return string the finished string
      */
-    public function transliterate($data, $from, $to, $options = null)
+    public function transliterate(string $data, string $from, string $to, $options = null): string
     {
         $options = isset($options) ? $options : [];
         $cachedOptions = isset($this->cache['options']) ? $this->cache['options'] : [];
