@@ -57,7 +57,6 @@ use Illuminate\Support\Facades\Facade;
  * @method static string transliterate(string $data, string $from, string $to, $options = null)
  *
  * */
-
 class IndicScript extends Facade
 {
     protected static function getFacadeAccessor(): string
