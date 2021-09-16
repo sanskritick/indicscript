@@ -5,7 +5,7 @@ namespace Sanskritick\Script;
 /**
  * IndicScript.
  *
- * IndicScript is a indic transliteration library.
+ * IndicScript is an indic transliteration library.
  *
  * Released under the MIT and GPL Licenses.
  */
@@ -364,7 +364,7 @@ class IndicScript
      *
      * @return bool
      */
-    public function isRomanScheme($name)
+    public function isRomanScheme(string $name): bool
     {
         return isset($this->romanSchemes[$name]);
     }
@@ -387,7 +387,7 @@ class IndicScript
      * @param array $scheme the scheme data itself. This should be constructed
      *                       as described above.
      */
-    public function addBrahmicScheme(string $name, array &$scheme)
+    public function addBrahmicScheme(string $name, array $scheme)
     {
         $this->schemes[$name] = $scheme;
     }
@@ -403,30 +403,11 @@ class IndicScript
      */
     public function addRomanScheme(string $name, array &$scheme)
     {
-        if (! isset($scheme['vowel_marks'])) {
+        if (!isset($scheme['vowel_marks'])) {
             $scheme['vowel_marks'] = array_slice($scheme['vowels'], 1);
         }
         $this->schemes[$name] = $scheme;
         $this->romanSchemes[$name] = true;
-    }
-
-    /**
-     * Create a deep copy of an object, for certain kinds of objects.
-     *
-     * @param array $scheme the scheme to copy
-     *
-     * @return array the copy
-     */
-    private function cheapCopy(array &$scheme): array
-    {
-        $copy = [];
-        foreach ($scheme as $key => $value) {
-            // PHP assignment automatically copies an array $value.
-            // @see http://us2.php.net/manual/en/language.types.array.php
-            $copy[$key] = $value;
-        }
-
-        return $copy;
     }
 
     /**
@@ -435,7 +416,7 @@ class IndicScript
     private function setUpSchemes()
     {
         // Set up roman schemes
-        $kolkata = $this->cheapCopy($this->schemes['iast']);
+        $kolkata = $this->schemes['iast'];
         $kolkata['vowels'] = ['a', 'ā', 'i', 'ī', 'u', 'ū', 'ṛ', 'ṝ', 'ḷ', 'ḹ', 'e', 'ē', 'ai', 'o', 'ō', 'au'];
         $this->schemes['kolkata'] = &$kolkata;
 
@@ -448,7 +429,7 @@ class IndicScript
         }
 
         // ITRANS variant, which supports Dravidian short 'e' and 'o'.
-        $itrans_dravidian = $this->cheapCopy($this->schemes['itrans']);
+        $itrans_dravidian = $this->schemes['itrans'];
         $itrans_dravidian['vowels'] = ['a', 'A', 'i', 'I', 'u', 'U', 'Ri', 'RRI', 'LLi', 'LLi', 'e', 'E', 'ai', 'o', 'O', 'au'];
         $itrans_dravidian['vowel_marks'] = array_slice($itrans_dravidian['vowels'], 1);
         $this->allAlternates['itrans_dravidian'] = $this->allAlternates['itrans'];
@@ -461,11 +442,10 @@ class IndicScript
      *
      * @param string $from input scheme
      * @param string $to output scheme
-     * @param array $options scheme options
      *
      * @return array the map
      */
-    private function makeMap(string $from, string $to, &$options): array
+    private function makeMap(string $from, string $to): array
     {
         $consonants = [];
         $fromScheme = &$this->schemes[$from];
@@ -474,14 +454,10 @@ class IndicScript
         $marks = [];
         $toScheme = &$this->schemes[$to];
 
-        if (isset($this->allAlternates[$from])) {
-            $alternates = &$this->allAlternates[$from];
-        } else {
-            $alternates = [];
-        }
+        $alternates = $this->allAlternates[$from] ?? [];
 
-        foreach ($fromScheme as $group => &$fromGroup) {
-            if (! isset($toScheme[$group])) {
+        foreach ($fromScheme as $group => $fromGroup) {
+            if (!isset($toScheme[$group])) {
                 continue;
             }
             $fromLength = count($fromGroup);
@@ -492,7 +468,7 @@ class IndicScript
 
                 if ($F !== '') {
                     $T = $toGroup[$i];
-                    $alts = isset($alternates[$F]) ? $alternates[$F] : [];
+                    $alts = $alternates[$F] ?? [];
 
                     $tokenLengths[] = mb_strlen($F, 'UTF-8');
                     foreach ($alts as $alt) {
@@ -540,7 +516,7 @@ class IndicScript
      *
      * @return string the finished string
      */
-    private function transliterateRoman(string $data, array &$map, &$options)
+    private function transliterateRoman(string $data, array &$map, array &$options): string
     {
         $buf = [];
         $consonants = &$map['consonants'];
@@ -588,12 +564,12 @@ class IndicScript
                 } elseif ($token === '<') {
                     $skippingSGML = $optSkipSGML;
                 } elseif ($token === '##') {
-                    $toggledTrans = ! $toggledTrans;
+                    $toggledTrans = !$toggledTrans;
                     $tokenBuffer = mb_substr($tokenBuffer, 2, null, 'UTF-8');
                     break;
                 }
                 $skippingTrans = $skippingSGML || $toggledTrans;
-                if (isset($letters[$token]) && ! $skippingTrans) {
+                if (isset($letters[$token]) && !$skippingTrans) {
                     if ($toRoman) {
                         $buf[] = $letters[$token];
                     } else {
@@ -617,7 +593,7 @@ class IndicScript
                 } elseif ($j === $maxTokenLength - 1) {
                     if ($hadConsonant) {
                         $hadConsonant = false;
-                        if (! $optSyncope) {
+                        if (!$optSyncope) {
                             $buf[] = $virama;
                         }
                     }
@@ -628,7 +604,7 @@ class IndicScript
                 }
             }
         }
-        if ($hadConsonant && ! $optSyncope) {
+        if ($hadConsonant && !$optSyncope) {
             $buf[] = $virama;
         }
 
@@ -640,11 +616,10 @@ class IndicScript
      *
      * @param string $data the string to transliterate
      * @param array $map map data generated from makeMap()
-     * @param array $options transliteration options
      *
      * @return string the finished string
      */
-    private function transliterateBrahmic(string $data, array &$map, &$options)
+    private function transliterateBrahmic(string $data, array &$map): string
     {
         $buf = [];
         $consonants = &$map['consonants'];
@@ -660,7 +635,7 @@ class IndicScript
             // Toggle transliteration state
             if ($L === '#') {
                 if ($danglingHash) {
-                    $skippingTrans = ! $skippingTrans;
+                    $skippingTrans = !$skippingTrans;
                     $danglingHash = false;
                 } else {
                     $danglingHash = true;
@@ -717,8 +692,8 @@ class IndicScript
      */
     public function transliterate(string $data, string $from, string $to, $options = null): string
     {
-        $options = isset($options) ? $options : [];
-        $cachedOptions = isset($this->cache['options']) ? $this->cache['options'] : [];
+        $options = $options ?? [];
+        $cachedOptions = $this->cache['options'] ?? [];
         $hasPriorState = (isset($this->cache['from']) && $this->cache['from'] === $from && isset($this->cache['to']) && $this->cache['to'] === $to);
 
         // Here we simultaneously build up an `options` object and compare
@@ -732,7 +707,7 @@ class IndicScript
             // This comparison method is not generalizable, but since these
             // objects are associative arrays with identical keys and with
             // values of known type, it works fine here.
-            if (! isset($cachedOptions[$key]) || $value !== $cachedOptions[$key]) {
+            if (!isset($cachedOptions[$key]) || $value !== $cachedOptions[$key]) {
                 $hasPriorState = false;
             }
         }
@@ -740,7 +715,7 @@ class IndicScript
         if ($hasPriorState) {
             $map = $this->cache['map'];
         } else {
-            $map = $this->makeMap($from, $to, $options);
+            $map = $this->makeMap($from, $to);
             $this->cache = [
                 'from'    => $from,
                 'map'     => &$map,
@@ -759,7 +734,7 @@ class IndicScript
         if ($map['fromRoman']) {
             return $this->transliterateRoman($data, $map, $options);
         } else {
-            return $this->transliterateBrahmic($data, $map, $options);
+            return $this->transliterateBrahmic($data, $map);
         }
     }
 }
