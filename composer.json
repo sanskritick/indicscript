@@ -1,57 +1,56 @@
 {
-  "name": "sanskritick/indicscript",
-  "description": "Transliteration package for Indic scripts",
-  "type": "library",
-  "license": "MIT",
-  "keywords": [
-    "transliteration",
-    "romanization",
-    "sanskrit",
-    "devanagari",
-    "itrans",
-    "iast"
-  ],
-  "authors": [
-    {
-      "name": "Vikram Bhaskaran",
-      "email": "vikram@sanskritick.com",
-      "homepage": "https://sanskritick.com",
-      "role": "Developer"
-    }
-  ],
-  "require": {
-    "php": "^7.4|^8.0",
-    "ext-json": "*"
-  },
-  "autoload": {
-    "psr-4": {
-      "Sanskritick\\": "src"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Sanskritick\\": "tests"
-    }
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^9.0",
-    "orchestra/testbench": "^6.7"
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Sanskritick\\Script\\IndicScriptServiceProvider"
-      ],
-      "aliases": {
-        "IndicScript": "Sanskritick\\Facades\\IndicScript"
-      }
-    }
-  },
-  "scripts": {
-    "test": "vendor/bin/phpunit",
-    "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
-    "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+    "name": "sanskritick/indicscript",
+    "description": "Transliteration package for Indic scripts",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "transliteration",
+        "romanization",
+        "sanskrit",
+        "devanagari",
+        "itrans",
+        "iast"
+    ],
+    "authors": [{
+        "name": "Vikram Bhaskaran",
+        "email": "vikram@sanskritick.com",
+        "homepage": "https://sanskritick.com",
+        "role": "Developer"
+    }],
+    "autoload": {
+        "psr-4": {
+            "Sanskritick\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sanskritick\\": "tests"
+        }
+    },
+    "require": {
+        "php": "^7.4|^8.0",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "orchestra/testbench": "^6.7",
+        "friendsofphp/php-cs-fixer": "^3.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sanskritick\\Script\\IndicScriptServiceProvider"
+            ],
+            "aliases": {
+                "IndicScript": "Sanskritick\\Facades\\IndicScript"
+            }
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
