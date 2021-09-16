@@ -403,7 +403,7 @@ class IndicScript
      */
     public function addRomanScheme(string $name, array &$scheme)
     {
-        if (!isset($scheme['vowel_marks'])) {
+        if (! isset($scheme['vowel_marks'])) {
             $scheme['vowel_marks'] = array_slice($scheme['vowels'], 1);
         }
         $this->schemes[$name] = $scheme;
@@ -457,7 +457,7 @@ class IndicScript
         $alternates = $this->allAlternates[$from] ?? [];
 
         foreach ($fromScheme as $group => $fromGroup) {
-            if (!isset($toScheme[$group])) {
+            if (! isset($toScheme[$group])) {
                 continue;
             }
             $fromLength = count($fromGroup);
@@ -516,7 +516,7 @@ class IndicScript
      *
      * @return string the finished string
      */
-    private function transliterateRoman(string $data, array &$map, array &$options): string
+    private function transliterateRoman(string $data, array &$map, array $options): string
     {
         $buf = [];
         $consonants = &$map['consonants'];
@@ -564,12 +564,12 @@ class IndicScript
                 } elseif ($token === '<') {
                     $skippingSGML = $optSkipSGML;
                 } elseif ($token === '##') {
-                    $toggledTrans = !$toggledTrans;
+                    $toggledTrans = ! $toggledTrans;
                     $tokenBuffer = mb_substr($tokenBuffer, 2, null, 'UTF-8');
                     break;
                 }
                 $skippingTrans = $skippingSGML || $toggledTrans;
-                if (isset($letters[$token]) && !$skippingTrans) {
+                if (isset($letters[$token]) && ! $skippingTrans) {
                     if ($toRoman) {
                         $buf[] = $letters[$token];
                     } else {
@@ -593,7 +593,7 @@ class IndicScript
                 } elseif ($j === $maxTokenLength - 1) {
                     if ($hadConsonant) {
                         $hadConsonant = false;
-                        if (!$optSyncope) {
+                        if (! $optSyncope) {
                             $buf[] = $virama;
                         }
                     }
@@ -604,7 +604,7 @@ class IndicScript
                 }
             }
         }
-        if ($hadConsonant && !$optSyncope) {
+        if ($hadConsonant && ! $optSyncope) {
             $buf[] = $virama;
         }
 
@@ -635,7 +635,7 @@ class IndicScript
             // Toggle transliteration state
             if ($L === '#') {
                 if ($danglingHash) {
-                    $skippingTrans = !$skippingTrans;
+                    $skippingTrans = ! $skippingTrans;
                     $danglingHash = false;
                 } else {
                     $danglingHash = true;
@@ -707,7 +707,7 @@ class IndicScript
             // This comparison method is not generalizable, but since these
             // objects are associative arrays with identical keys and with
             // values of known type, it works fine here.
-            if (!isset($cachedOptions[$key]) || $value !== $cachedOptions[$key]) {
+            if (! isset($cachedOptions[$key]) || $value !== $cachedOptions[$key]) {
                 $hasPriorState = false;
             }
         }
