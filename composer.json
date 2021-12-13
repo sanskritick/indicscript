@@ -28,13 +28,13 @@
         }
     },
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^7.4|^8.0|^8.1",
         "ext-json": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.0",
-        "orchestra/testbench": "^6.7",
-        "friendsofphp/php-cs-fixer": "^3.0"
+        "phpunit/phpunit": "^9.5",
+        "orchestra/testbench": "^6.23",
+        "friendsofphp/php-cs-fixer": "^3.4"
     },
     "extra": {
         "laravel": {
